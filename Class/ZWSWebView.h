@@ -34,6 +34,8 @@
 #pragma mark - WebView
 @interface ZWSWebView : UIView
 
+//WKWebView
+-(instancetype)initWithFrame:(CGRect)frame messageHandler:(NSString *)messageHandler;
 -(instancetype)initWithFrame:(CGRect)frame isUIWebView:(BOOL)isUIWebView messageHandler:(NSString *)messageHandler;
 
 -(void)loadURLString:(NSString*)urlString;

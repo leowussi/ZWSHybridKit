@@ -35,16 +35,16 @@
     [_webView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin];
     _webView.progressDelegate = self;
     [self.view addSubview:_webView];
-    
-    [WebViewJavascriptBridge enableLogging];
-    _bridge = [WebViewJavascriptBridge bridgeForWebView:_webView.currentWebView];
-    [_bridge setWebViewDelegate:self];
-    [_bridge registerHandler:@"yjk_navtive" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"testObjcCallback called: %@", data);
-        responseCallback(_txtMessage.text.length > 0 ? _txtMessage.text:_txtMessage.placeholder);
-    }];
-    [_bridge callHandler:@"testJavascriptHandler" data:@{ @"foo":@"before ready" }];
-    
+//
+//    [WebViewJavascriptBridge enableLogging];
+//    _bridge = [WebViewJavascriptBridge bridgeForWebView:_webView.currentWebView];
+//    [_bridge setWebViewDelegate:self];
+//    [_bridge registerHandler:@"yjk_navtive" handler:^(id data, WVJBResponseCallback responseCallback) {
+//        NSLog(@"testObjcCallback called: %@", data);
+//        responseCallback(_txtMessage.text.length > 0 ? _txtMessage.text:_txtMessage.placeholder);
+//    }];
+//    [_bridge callHandler:@"testJavascriptHandler" data:@{ @"foo":@"before ready" }];
+//
     [self renderButtons:_webView];
     //[self loadPage:_webView];
     [self loadPage2:_webView];
@@ -60,18 +60,15 @@
 
 -(void)loadPage2:(ZWSWebView*)webView
 {
-//    [JWCacheURLProtocol startListeningNetWorking];
-    
     NSString *whiteListStr = @"https://video.189jk.cn?form=app";
-//    NSString *whiteListStr = @"https://baidu.com";
+//    NSString *whiteListStr = @"https://t.tech.21cn.com/f6fUru";
 //    NSString *whiteListStr = @"http://mp.weixin.qq.com/mp/homepage?__biz=MzIxNzAxNjE1NQ==&hid=2&sn=a7643e3598904aa0a805cc700f59f371#wechat_redirect";
-    
-//    [ZWSCacheURLProtocol startNetMonitoring:YES];
-//    NSMutableArray *whiteLists = [NSMutableArray arrayWithArray:[whiteListStr componentsSeparatedByString:@"|"]];
-//    [STMURLCache create:^(STMURLCacheMk *mk) {
-//        mk.whiteListsHost(whiteLists).whiteUserAgent(@"starming").isUsingURLProtocol(YES).cacheTime(20*60*60);
-//    }];
     [webView loadURLString:whiteListStr];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -21,6 +21,16 @@
 @implementation ZWSWebView
 @synthesize isWKWebView = _isWKWebView;
 
+-(instancetype)initWithFrame:(CGRect)frame messageHandler:(NSString *)messageHandler
+{
+    self = [super initWithFrame:frame];
+    if(self){
+        self.isWKWebView = YES;
+        self.messageHandler = messageHandler;
+    }
+    return self;
+}
+
 -(instancetype)initWithFrame:(CGRect)frame isUIWebView:(BOOL)isUIWebView messageHandler:(NSString *)messageHandler
 {
     self = [super initWithFrame:frame];

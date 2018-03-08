@@ -118,10 +118,10 @@
 			children = (
 				E7FAF233204E9F8D005F8736 /* NSURLProtocol+WebKitSupport.h */,
 				E7FAF234204E9F8D005F8736 /* NSURLProtocol+WebKitSupport.m */,
-				E75CFBE0203EBD0E001B2618 /* ZWSWebView.h */,
-				E75CFBE1203EBD0E001B2618 /* ZWSWebView.m */,
 				E710399720453377004AC832 /* ZWSCacheURLProtocol.h */,
 				E710399820453377004AC832 /* ZWSCacheURLProtocol.m */,
+				E75CFBE0203EBD0E001B2618 /* ZWSWebView.h */,
+				E75CFBE1203EBD0E001B2618 /* ZWSWebView.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";

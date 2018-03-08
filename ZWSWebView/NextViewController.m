@@ -18,8 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    [ZWSCacheURLProtocol startNetMonitoring:NO];
+
     _webView = [[ZWSWebView alloc]initWithFrame:self.view.bounds isUIWebView:NO messageHandler:nil];
     [_webView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin];
     //_webView.progressDelegate = self;
@@ -32,7 +31,7 @@
 
 -(void)dealloc
 {
-//    [ZWSCacheURLProtocol stopNetMonitoring];
+    [ZWSCacheURLProtocol stopNetMonitoring:NO];
 }
 
 -(void)webView:(ZWSWebView *)webView title:(NSString *)title

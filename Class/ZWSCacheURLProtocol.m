@@ -55,7 +55,7 @@ static inline NSString * ZWSMD5(NSString *input) {
 -(void)clearCache
 {
     _cacheUrl = nil;
-    [[NSURLCache sharedURLCache]removeAllCachedResponses];
+    //[[NSURLCache sharedURLCache]removeAllCachedResponses];
 }
 
 -(void)didReceiveMemoryWarningNoti
@@ -142,18 +142,18 @@ static NSString * const kZWSBackgroundUpdate = @"ZWSBackgroundUpdate";
 //            }
 //        }
         [NSURLProtocol wk_registerScheme:@"http"];
-    }else{
-        [NSURLProtocol registerClass:[ZWSCacheURLProtocol class]];
+        [NSURLProtocol wk_registerScheme:@"https"];
     }
+    [NSURLProtocol registerClass:[ZWSCacheURLProtocol class]];
 }
 
 +(void)stopNetMonitoring:(BOOL)isUIWebView
 {
     if(!isUIWebView){
         [NSURLProtocol wk_unregisterScheme:@"http"];
-    }else{
-        [NSURLProtocol unregisterClass:[ZWSCacheURLProtocol class]];
+        [NSURLProtocol wk_unregisterScheme:@"https"];
     }
+    [NSURLProtocol unregisterClass:[ZWSCacheURLProtocol class]];
 }
 
 +(void)setCacheSpaceTime:(double)spaceTime
